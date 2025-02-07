@@ -1,0 +1,90 @@
+<script>
+	import DemoArea from '$lib/components/docs/demoArea.svelte';
+	import Cairn from '$lib';
+</script>
+
+<section id="responsive-example">
+
+## Responsive Layout
+The Layout component provides an intuitive responsive design system based on its container width using ResizeObserver. Similar to mobile-first breakpoints in CSS, you can define how the layout adapts as it grows.
+
+### How It Works
+The Layout component uses two types of props to control its behavior:
+
+1. Default props that apply at all screen sizes
+2. Breakpoint-specific props that override the defaults at specified screen widths
+
+### Breakpoints Configuration
+The `breakpoints` prop accepts an object where:
+
+- Keys are numbers representing minimum container widths (in pixels)
+- Values are objects containing props to apply at that breakpoint
+
+For example, this configuration starts with 1 column on mobile and progressively increases columns as the screen width grows:
+
+```svelte
+<Cairn.Layout
+  columns={1}
+  breakpoints={{
+    200: { columns: 2 },
+    300: { columns: 3 },
+    400: { columns: 4 },
+    500: { columns: 5 },
+    600: { columns: 6 },
+    700: { columns: 7 },
+    800: { columns: 8 }
+  }}
+> ... </Cairn.Layout>
+```
+
+<DemoArea title="Responsive Example" maxHeight="500px">
+	<!-- <div slot="code"> -->
+
+<!-- ```svelte -->
+<!-- <script> -->
+<!--   import Cairn from 'svelte-cairn'; -->
+<!-- </script> -->
+<!---->
+<!-- <Cairn.Layout -->
+<!--   columns={1} -->
+<!--   gap={10} -->
+<!--   breakpoints={{ -->
+<!--     200: { columns: 2 }, -->
+<!--     300: { columns: 3 }, -->
+<!--     400: { columns: 4 }, -->
+<!--     500: { columns: 5 }, -->
+<!--     600: { columns: 6 }, -->
+<!--     700: { columns: 7 }, -->
+<!--     800: { columns: 8 } -->
+<!--   }} -->
+<!-- > -->
+<!--   {#each { length: 16 } as _, i} -->
+<!--     <Cairn.Item> -->
+<!--       <div style:height="{i % 2 === 0 ? 200 : 300}px" style:background="rgb(0 0 0 / 10%)" /> -->
+<!--     </Cairn.Item> -->
+<!--   {/each} -->
+<!-- </Cairn.Layout> -->
+<!-- ``` -->
+
+	<!-- </div> -->
+	<Cairn.Layout
+		columns={1}
+		gap={10}
+		breakpoints={{
+			200: { columns: 2 },
+			300: { columns: 3 },
+			400: { columns: 4 },
+			500: { columns: 5 },
+			600: { columns: 6 },
+			700: { columns: 7 },
+			800: { columns: 8 }
+		}}
+	>
+		{#each { length: 16 } as _, i}
+			<Cairn.Item>
+				<div style:height="{i % 2 === 0 ? 200 : 300}px" style:background="rgb(0 0 0 / 10%)" />
+			</Cairn.Item>
+		{/each}
+	</Cairn.Layout>
+</DemoArea>
+  </section>

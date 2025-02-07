@@ -1,0 +1,44 @@
+<script lang="ts">
+	import DemoArea from '$lib/components/docs/demoArea.svelte';
+	import Cairn from '$lib';
+
+	let gap = 10;
+</script>
+
+<section id="gap-example">
+
+### Gap
+Set the gap between items in the `Cairn.Layout` component using the `gap` prop.
+
+<DemoArea title="Gap Example" maxHeight="500px">
+  <div slot="code">
+
+```svelte
+<script>
+  import Cairn from 'svelte-cairn';
+</script>
+
+<Cairn.Layout columns={3} gap={10}>
+  {#each { length: 9 } as _, i}
+    <Cairn.Item>
+      <div style:height="{i % 2 === 0 ? 200 : 300}px" style:background="rgb(0 0 0 / 10%)" />
+    </Cairn.Item>
+  {/each}
+</Cairn.Layout>
+```
+
+  </div>
+
+  <div>
+	<input type="range" min="0" max="40" bind:value={gap} />
+	<p>Gap: {gap}</p>
+	<Cairn.Layout columns={3} {gap}>
+		{#each { length: 9 } as _, i}
+			<Cairn.Item>
+				<div style:height="{i % 2 === 0 ? 200 : 300}px" style:background="rgb(0 0 0 / 10%)" />
+			</Cairn.Item>
+		{/each}
+	</Cairn.Layout>
+  </div>
+</DemoArea>
+  </section>
