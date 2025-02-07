@@ -2,9 +2,12 @@
 	import { getContext } from 'svelte';
 
 	const registerItem = getContext('cairn-register-item');
+
+	let extraClasses = '';
+	export { extraClasses as class };
 </script>
 
-<div use:registerItem class="cairn-item">
+<div use:registerItem class="cairn-item {extraClasses}" {...$$restProps}>
 	<slot />
 </div>
 

@@ -9,6 +9,7 @@
 	export { baseColumns as columns };
 	export let breakpoints: { [minWidth: number]: Breakpoint } = {};
 	export let algorithm: 'naive' | 'balanced' = 'balanced';
+	export let gap = 0;
 
 	let columns = baseColumns;
 
@@ -42,6 +43,8 @@
 
 	let columnHeights = Array(columns).fill(0);
 
+	const EPSILON = 0.1;
+
 	function placeItem(item: HTMLElement, i: number) {
 		let column = 0;
 
@@ -51,7 +54,8 @@
 			let lowestColumnHeight = columnHeights[0];
 
 			columnHeights.forEach((height, index) => {
-				if (height < lowestColumnHeight) {
+				// this fixes cringe floating point errors. Just imagine: if (height < lowestColumnHeight)
+				if (lowestColumnHeight - height > EPSILON) {
 					lowestColumnHeight = height;
 					column = index;
 				}
@@ -59,10 +63,10 @@
 		}
 
 		item.style.width = columnWidth + 'px';
-		item.style.left = columnWidth * column + 'px';
+		item.style.left = (columnWidth + gap) * column + 'px';
 		item.style.top = columnHeights[column] + 'px';
 
-		columnHeights[column] += item.getBoundingClientRect().height;
+		columnHeights[column] += item.getBoundingClientRect().height + gap;
 		if (container) {
 			container.style.height = Math.max(...columnHeights) + 'px';
 		}
@@ -70,7 +74,6 @@
 
 	function applyBreakpoints(width: number) {
 		for (const { minWidth, values } of breakpointsInternal) {
-			console.log('minWidth', minWidth, 'values', values);
 			if (width >= minWidth) {
 				columns = values.columns;
 				break;
@@ -78,21 +81,31 @@
 		}
 	}
 
+	let width = 0;
+	$: reposition(gap, width);
+
 	// responsive stuff
 	onMount(() => {
+		width = container.getBoundingClientRect().width;
+
 		new ResizeObserver((e) => {
-			let width = e[0].contentRect.width;
-
-			applyBreakpoints(width);
-			columnWidth = width / columns;
-			columnHeights = Array(columns).fill(0);
-
-			// replace all items
-			items.forEach((item, i) => {
-				placeItem(item, i);
-			});
+			width = e[0].contentRect.width;
 		}).observe(container);
 	});
+
+	function reposition(gap: number, width: number) {
+		applyBreakpoints(width);
+		columnWidth = width / columns;
+		// remove gap from columnWidth
+		columnWidth -= (gap * (columns - 1)) / columns;
+
+		columnHeights = Array(columns).fill(0);
+
+		// replace all items
+		items.forEach((item, i) => {
+			placeItem(item, i);
+		});
+	}
 </script>
 
 <div class="cairn-layout" bind:this={container}>
