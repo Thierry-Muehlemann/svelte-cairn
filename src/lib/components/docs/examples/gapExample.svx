@@ -6,6 +6,7 @@
 </script>
 
 <section id="gap-example">
+<div class="prose">
 
 ### Gap
 Set the gap between items in the `Cairn.Layout` component using the `gap` prop.
@@ -25,6 +26,7 @@ Todo: support different gaps for columns and rows
 </Cairn.Layout>
 ```
 
+</div>
 <DemoArea title="Gap Interactive Example" maxHeight="500px">
   <div slot="code">
 

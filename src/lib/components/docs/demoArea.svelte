@@ -37,7 +37,7 @@
 		align-items: center;
 		display: flex;
 		justify-content: center;
-		margin-bottom: 4rem;
+		margin-block: 4rem;
 	}
 
 	.demo-header {

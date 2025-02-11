@@ -17,13 +17,19 @@ body {
 	margin: 0 auto;
 }
 
-button {
+button,
+.btn {
 	border: 1px solid var(--border-color);
 	background: var(--bg-color);
 	color: var(--text-color);
 	padding: 0.5rem 1rem;
 	cursor: pointer;
 	border-radius: 0.5rem;
+}
+
+button:hover,
+.btn:hover {
+	border-color: var(--text-color);
 }
 
 :root {
@@ -39,4 +45,28 @@ button {
 		--text-color: #fff;
 		--border-color: oklch(0.374 0.01 67.558);
 	}
+}
+
+.prose h2 {
+	margin-bottom: 2rem;
+	margin-top: 4rem;
+}
+
+.prose * + * {
+	margin-top: 1.5rem;
+}
+
+.prose p {
+	line-height: 1.5;
+}
+
+.prose ul,
+.prose ol {
+	padding-left: 1rem;
+}
+.prose li {
+	padding-left: 1rem;
+}
+.prose li + li {
+	margin-top: 0.5rem;
 }

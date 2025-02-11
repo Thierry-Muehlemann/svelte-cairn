@@ -28,6 +28,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/package": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
@@ -42,5 +43,12 @@
 	},
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"type": "module"
+	"type": "module",
+  "description": "Masonry Layout in Svelte",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Thierry-Muehlemann/svelte-cairn"
+  },
+  "homepage": "cairn.thierry.sh",
+  "license": "MIT"
 }

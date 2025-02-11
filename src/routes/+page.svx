@@ -22,11 +22,12 @@
 
 <div class="wrap top" id="top">
 
-# 🧱 Svelte Cairn 
+# 🧱 Svelte Cairn
 
 Svelte Cairn is a masonry layout engine for Svelte applications. It creates dynamic, Pinterest-style grid layouts where items of varying heights are packed efficiently into columns, eliminating unwanted gaps.
 
 </div>
+  <div class="demo-container">
 <DemoArea title="Pinterest-like layout">
   <Cairn.Layout 
     columns={1}
@@ -45,15 +46,18 @@ Svelte Cairn is a masonry layout engine for Svelte applications. It creates dyna
       <img src="https://picsum.photos/600/{item.height}?random={i}" width="600" height="{item.height}" alt="random image" />
 
         {#if debugMarks}
+
   <div class="tag">{i}</div>
         {/if}
       </Cairn.Item>
       {/each}
   </Cairn.Layout>
 </DemoArea>
+  </div>
 <div class="wrap">
 <button on:click={() => (debugMarks = !debugMarks)}>Show index numbers</button>
-Toggle numbers to see how items are ordered in the layout. Each number shows the item's original position in the sequence.
+    <p>Toggle numbers to see how items are ordered in the layout. Each number shows the item's original position in the sequence.
+    </p>
 </div>
 </div>
 
@@ -61,22 +65,26 @@ Toggle numbers to see how items are ordered in the layout. Each number shows the
 <aside>
   <div class="aside-content">
 
-  ## 📚 Cairn Docs
-  - [🎮 demo](#top)
-  - [🔧 installation](#installation)
-  - [📖 usage](#usage)
-  - [🧩 components](#components)
-  - [💡 examples](#examples)
-    - [📋 basic](#basic-example)
-    - [↔️ gap](#gap-example)
-    - [📱 responsive](#responsive-example)
+## 📚 Cairn Docs
 
+- [🎮 demo](#top)
+- [🔧 installation](#installation)
+- [📖 usage](#usage)
+- [🧩 components](#components)
+- [💡 examples](#examples)
+  - [📋 basic](#basic-example)
+  - [↔️ gap](#gap-example)
+  - [📱 responsive](#responsive-example)
+
+<a href="https://github.com/Thierry-Muehlemann/svelte-cairn" class="btn">
+	🚀 source code / github
+</a>
 
   </div>
 </aside>
 <div class="max-w-wrap">
 
-<section id="installation">
+<section id="installation" class="prose">
 
 ## Installation
 
@@ -85,36 +93,44 @@ npm install svelte-cairn
 ```
 
 </section>
-<section id="usage">
+<section id="usage" class="prose">
 
 ## Usage
+
 The components in their simplest form look like this:
 
 ```svelte
 <script>
-  import Cairn from 'svelte-cairn';
+	import Cairn from 'svelte-cairn';
 </script>
 
 <Cairn.Layout>
-  <Cairn.Item> Your content here </Cairn.Item>
+	<Cairn.Item>Your content here</Cairn.Item>
 </Cairn.Layout>
-````
+```
 
 </section>
-<section id="components">
+<section id="components" class="prose">
 
 ## Components
+
 ### Cairn.Layout
+
 The container component that manages the masonry layout. It automatically arranges child items into an optimal grid pattern based on their dimensions.
 
 ### Cairn.Item
+
 A wrapper component for individual grid items. Each piece of content in the masonry layout must be wrapped in a Cairn.Item component.
 
 </section>
 <section id="examples">
+<div class="prose">
 
 ## Examples
+
 Here are some examples to help you get started:
+
+</div>
 <Examples />
 </section>
 </div>
@@ -139,9 +155,6 @@ padding: 0.5rem;
 font-size: 0.8rem;
     border-radius: 0.5rem;
 	}
-  .item {
-    position: relative;
-  }
   .main {
     display: flex;
     justify-content: center;
@@ -180,9 +193,24 @@ font-size: 0.8rem;
     background: linear-gradient(to bottom, var(--bg-color), var(--border-color));
     padding-bottom: 3rem;
   }
+  .intro h1 {
+    margin-bottom: 2rem;
+  }
+  .intro button {
+    margin-bottom: 2rem;
+  }
   .intro .top p {
     font-size: 1.2rem;
     margin-bottom: 5rem;
     max-width: 65ch;
+    line-height: 1.5;
+  }
+  .demo-container {
+    height: 66svh;
+    width: 80svw;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4rem;
   }
 </style>

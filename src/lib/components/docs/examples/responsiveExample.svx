@@ -4,6 +4,7 @@
 </script>
 
 <section id="responsive-example">
+  <div class="prose">
 
 ## Responsive Layout
 The Layout component provides an intuitive responsive design system based on its container width using ResizeObserver. Similar to mobile-first breakpoints in CSS, you can define how the layout adapts as it grows.
@@ -36,37 +37,38 @@ For example, this configuration starts with 1 column on mobile and progressively
   }}
 > ... </Cairn.Layout>
 ```
+</div>
 
 <DemoArea title="Responsive Example" maxHeight="500px">
-	<!-- <div slot="code"> -->
+	<div slot="code">
 
-<!-- ```svelte -->
-<!-- <script> -->
-<!--   import Cairn from 'svelte-cairn'; -->
-<!-- </script> -->
-<!---->
-<!-- <Cairn.Layout -->
-<!--   columns={1} -->
-<!--   gap={10} -->
-<!--   breakpoints={{ -->
-<!--     200: { columns: 2 }, -->
-<!--     300: { columns: 3 }, -->
-<!--     400: { columns: 4 }, -->
-<!--     500: { columns: 5 }, -->
-<!--     600: { columns: 6 }, -->
-<!--     700: { columns: 7 }, -->
-<!--     800: { columns: 8 } -->
-<!--   }} -->
-<!-- > -->
-<!--   {#each { length: 16 } as _, i} -->
-<!--     <Cairn.Item> -->
-<!--       <div style:height="{i % 2 === 0 ? 200 : 300}px" style:background="rgb(128 128 128 / 20%)" /> -->
-<!--     </Cairn.Item> -->
-<!--   {/each} -->
-<!-- </Cairn.Layout> -->
-<!-- ``` -->
+```svelte
+<script>
+  import Cairn from 'svelte-cairn';
+</script>
 
-	<!-- </div> -->
+<Cairn.Layout
+  columns={1}
+  gap={10}
+  breakpoints={{
+    200: { columns: 2 },
+    300: { columns: 3 },
+    400: { columns: 4 },
+    500: { columns: 5 },
+    600: { columns: 6 },
+    700: { columns: 7 },
+    800: { columns: 8 }
+  }}
+>
+  {#each { length: 16 } as _, i}
+    <Cairn.Item>
+      <div style:height="{i % 2 === 0 ? 200 : 300}px" style:background="rgb(128 128 128 / 20%)" />
+    </Cairn.Item>
+  {/each}
+</Cairn.Layout>
+```
+
+	</div>
 	<Cairn.Layout
 		columns={1}
 		gap={10}
