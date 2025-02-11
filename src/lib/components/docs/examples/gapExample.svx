@@ -10,18 +10,38 @@
 ### Gap
 Set the gap between items in the `Cairn.Layout` component using the `gap` prop.
 
-<DemoArea title="Gap Example" maxHeight="500px">
+```svelte
+<Cairn.Layout gap={10}>
+    ...
+</Cairn.Layout>
+
+````
+
+
+Todo: support different gaps for columns and rows
+```svelte
+<Cairn.Layout gap={{column: 10, row: 20}}>
+    ...
+</Cairn.Layout>
+```
+
+<DemoArea title="Gap Interactive Example" maxHeight="500px">
   <div slot="code">
 
 ```svelte
 <script>
   import Cairn from 'svelte-cairn';
+
+	let gap = 10;
 </script>
 
-<Cairn.Layout columns={3} gap={10}>
+<input type="range" min="0" max="40" bind:value={gap} />
+<p>Gap: {gap}</p>
+
+<Cairn.Layout columns={3} {gap}>
   {#each { length: 9 } as _, i}
     <Cairn.Item>
-      <div style:height="{i % 2 === 0 ? 200 : 300}px" style:background="rgb(0 0 0 / 10%)" />
+      <div style:height="{i % 2 === 0 ? 200 : 300}px" style:background="rgb(128 128 128 / 20%)" />
     </Cairn.Item>
   {/each}
 </Cairn.Layout>
@@ -35,7 +55,7 @@ Set the gap between items in the `Cairn.Layout` component using the `gap` prop.
 	<Cairn.Layout columns={3} {gap}>
 		{#each { length: 9 } as _, i}
 			<Cairn.Item>
-				<div style:height="{i % 2 === 0 ? 200 : 300}px" style:background="rgb(0 0 0 / 10%)" />
+				<div style:height="{i % 2 === 0 ? 200 : 300}px" style:background="rgb(128 128 128 / 20%)" />
 			</Cairn.Item>
 		{/each}
 	</Cairn.Layout>

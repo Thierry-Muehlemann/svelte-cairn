@@ -18,9 +18,11 @@
   let debugMarks = false;
 </script>
 
-<div class="wrap" id="top">
+<div class="intro">
 
-# Svelte Cairn
+<div class="wrap top" id="top">
+
+# 🧱 Svelte Cairn 
 
 Svelte Cairn is a masonry layout engine for Svelte applications. It creates dynamic, Pinterest-style grid layouts where items of varying heights are packed efficiently into columns, eliminating unwanted gaps.
 
@@ -53,13 +55,13 @@ Svelte Cairn is a masonry layout engine for Svelte applications. It creates dyna
 <button on:click={() => (debugMarks = !debugMarks)}>Show index numbers</button>
 Toggle numbers to see how items are ordered in the layout. Each number shows the item's original position in the sequence.
 </div>
+</div>
 
 <div class="main">
-
 <aside>
   <div class="aside-content">
 
-  ## 📚 Docs
+  ## 📚 Cairn Docs
   - [🎮 demo](#top)
   - [🔧 installation](#installation)
   - [📖 usage](#usage)
@@ -89,6 +91,10 @@ npm install svelte-cairn
 The components in their simplest form look like this:
 
 ```svelte
+<script>
+  import Cairn from 'svelte-cairn';
+</script>
+
 <Cairn.Layout>
   <Cairn.Item> Your content here </Cairn.Item>
 </Cairn.Layout>
@@ -140,8 +146,8 @@ font-size: 0.8rem;
     display: flex;
     justify-content: center;
     gap: 1rem;
-    border-top: 1px solid #ccc;
-    margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 3rem;
   }
   aside {
     width: 200px;
@@ -168,5 +174,15 @@ font-size: 0.8rem;
   aside ul ul {
     padding-top: 0.5rem;
     padding-left: 1.25rem;
+  }
+  .intro {
+    padding-top: 6rem;
+    background: linear-gradient(to bottom, var(--bg-color), var(--border-color));
+    padding-bottom: 3rem;
+  }
+  .intro .top p {
+    font-size: 1.2rem;
+    margin-bottom: 5rem;
+    max-width: 65ch;
   }
 </style>

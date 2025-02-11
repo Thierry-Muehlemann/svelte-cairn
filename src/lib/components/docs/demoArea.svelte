@@ -42,9 +42,8 @@
 
 	.demo-header {
 		font-size: 1.125rem;
-		color: #374151;
 		padding: 0.5rem 1rem;
-		border-bottom: 1px solid #e5e7eb;
+		border-bottom: 1px solid var(--border-color);
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -54,13 +53,13 @@
 	}
 
 	.demo-content {
-		border: 1px solid #e5e7eb;
+		border: 1px solid var(--border-color);
+		background: var(--bg-color);
 		border-radius: 8px;
 		width: 100%;
 		height: 100%;
 		resize: horizontal;
 		overflow: hidden;
-		background-color: white;
 		box-shadow:
 			0 20px 25px -5px rgb(0 0 0 / 0.1),
 			0 8px 10px -6px rgb(0 0 0 / 0.1);
