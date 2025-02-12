@@ -1,10 +1,8 @@
-# Svelte Cairn
+# svelte-cairn
 
-Svelte Cairn is a masonry style layout engine for svelte.
+A masonry layout engine for Svelte applications.
 
-## Demo and Docs
-
-[https://cairn.thierry.sh](https://cairn.thierry.sh)
+The `svelte-cairn` package provides a simple way to create masonry-style layouts in Svelte. Currently in early development, it focuses on ease of use with a straightforward API.
 
 ## Installation
 
@@ -12,3 +10,20 @@ Svelte Cairn is a masonry style layout engine for svelte.
 npm install svelte-cairn
 ```
 
+## Usage
+
+```svelte
+<script>
+	import Cairn from 'svelte-cairn';
+</script>
+
+<Cairn.Layout>
+	<Cairn.Item>Your content here</Cairn.Item>
+</Cairn.Layout>
+```
+
+## Documentation & Demos
+
+For live examples and API documentation, visit:
+
+**[cairn.thierry.sh](https://cairn.thierry.sh)**

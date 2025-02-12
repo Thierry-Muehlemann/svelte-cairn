@@ -1,8 +1,8 @@
 <script>
 	import Cairn from '$lib';
-  import DemoArea from '$lib/components/docs/demoArea.svelte';
+  import DemoArea from '$docs/components/demoArea.svelte';
   import "../prism-theme.css";
-  import Examples from '$lib/components/docs/examples/examples.svelte';
+  import Examples from '$docs/components/examples/examples.svelte';
 
   const gap = 10;
 

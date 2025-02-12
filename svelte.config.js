@@ -10,7 +10,11 @@ const config = {
 	preprocess: [vitePreprocess(), mdsvex()],
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		alias: {
+			$lib: 'src/lib',
+			$docs: 'src/docs'
+		}
 	}
 };
 

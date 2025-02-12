@@ -1,5 +1,5 @@
 <script>
-	import DemoArea from '$lib/components/docs/demoArea.svelte';
+	import DemoArea from '$docs/components/demoArea.svelte';
 	import Cairn from '$lib';
 </script>
 

@@ -1,0 +1,37 @@
+<script>
+	import DemoArea from '$docs/components/demoArea.svelte';
+	import Cairn from '$lib';
+</script>
+
+<section id="basic-example">
+	<DemoArea title="Basic Example" maxHeight="500px">
+		<div slot="code">
+
+```svelte
+<script>
+	import Cairn from 'svelte-cairn';
+</script>
+
+<Cairn.Layout columns={3} gap={10}>
+	{#each { length: 12 } as _, i}
+		<Cairn.Item>
+			<div
+				style:height="{i % 2 === 0 ? 200 : 300}px"
+				style:background="rgb(128 128 128 / 20%)"
+			></div>
+		</Cairn.Item>
+	{/each}
+</Cairn.Layout>
+```
+
+    	</div>
+    	<Cairn.Layout columns={3} gap={10}>
+    		{#each { length: 12 } as _, i}
+    			<Cairn.Item>
+    				<div style:height="{i % 2 === 0 ? 200 : 300}px" style:background="rgb(128 128 128 / 20%)" />
+    			</Cairn.Item>
+    		{/each}
+    	</Cairn.Layout>
+    </DemoArea>
+
+</section>
